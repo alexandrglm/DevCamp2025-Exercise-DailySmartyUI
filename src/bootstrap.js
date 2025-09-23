@@ -11,10 +11,11 @@ import reducers from "./reducers";
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/css/bootstrap.css';
 import "./style/main.scss";
 
 import Home from "./components/home";
+import Results from "./components/results";
 
 function main() {
 
@@ -24,7 +25,7 @@ function main() {
       
       <BrowserRouter>
         <Route exact path="/" component={Home} />
-        <Route path="/results" component={Home} />
+        <Route path="/results" component={Results} />
       </BrowserRouter>
     
     </Provider>,
