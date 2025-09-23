@@ -9,6 +9,8 @@ The main objective is to complete the exercise; the mock API can later be refine
 ---
 
 ## FAKE API USAGE
+---
+### STANDALONE (Both npm running, server + API)
 
 1. Create a separate /server folder, like `server/mockDailySmartyAPI`
 
@@ -113,6 +115,37 @@ npm install
 ```
 
 6. Start another instance with the project server, and continue developing the interface while using a working API adapted to the required schema.
+---
+
+### BOTH INCLUDED
+
+Similar to the previous method.
+Create `db.json` and place it wherever we want (for example, `server/mockDailySmartyAPI`).
+
+Install two new dev dependencies:
+
+1. `npm-run-all` (like `concurrently` for newer Node versions).
+2. `json-server@0.17.4`, exactly this version for the `js-generate` we use.
+
+In `package.json` under `scripts`, make some changes to run both server instances in one command:
+
+```json
+    "scripts": {
+        ...
+        "dev:api": "json-server --watch server/mockDailySmartyAPI/db.json --port 3001 --delay 500",
+        "dev:app": "webpack-dev-server --config webpack/dev.config.js --watch",
+        "dev:full": "npm-run-all --parallel dev:api dev:app"
+        ...
+    }
+```
+
+Named `dev:api` for the fake API callback, and `dev:app` for the same thing `run start` was doing… just a matter of preference.
+
+To run everything at once:
+
+```bash
+npm run dev:full
+```
 
 ---
 

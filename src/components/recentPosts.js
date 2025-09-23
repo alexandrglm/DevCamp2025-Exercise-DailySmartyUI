@@ -1,7 +1,17 @@
 // De 10-204
 import React, { Component } from "react";
+import { connect } from 'react-redux'
+
+import * as actions from '../actions';
 
 class RecentPosts extends Component {
+
+    componentDidMount(){
+
+        this.props.fetchRecentPosts()
+
+    }
+
 
     render() {
 
@@ -32,4 +42,12 @@ class RecentPosts extends Component {
 
 }
 
-export default RecentPosts;
+/*
+ATENTO al connect syntax:
+
+connect(mapStateToProps, mapDispatchToProps)(Component)
+
+*/
+
+export default  connect(null, actions)(RecentPosts);
+
