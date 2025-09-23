@@ -3,11 +3,18 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form'
 
+// De 10-207
+import { withRouter } from 'react-router-dom'
+
+
+
 class SearchBar extends Component {
 
     handleFormSubmission( {query} ) {
 
         console.log('[DEBUG REDUX-FORM] -> Handle submit for query: ', query)
+
+        this.props.history.push('/results')
 
     }
 
@@ -44,11 +51,16 @@ class SearchBar extends Component {
 }
 
 // De10-205 -> Aqui es donde conectamos todo con redux-form
+
+// 10-207
+// 1. Redux from HOC
 SearchBar = reduxForm({
 
     form: 'searchBar'
 
 })(SearchBar);
 
+SearchBar = withRouter(SearchBar)
 
+// 2. Router HOC
 export default SearchBar;
