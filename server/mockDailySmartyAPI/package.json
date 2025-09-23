@@ -1,0 +1,13 @@
+{
+  "name": "dailysmarty-mock-api",
+  "version": "1.0.0",
+  "description": "DevCamp -> Mock DailySmarty API",
+  "main": "server.js",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3001 --host localhost",
+    "dev": "json-server --watch db.json --port 3001 --host localhost --delay 500"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}

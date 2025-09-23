@@ -1,0 +1,47 @@
+{
+    "posts": [
+
+        {
+            "id": 1,
+            "title": "How to mock an API",
+            "content": "Lorem Ipsum bla bla bla",
+            "created_at": "2025-09-23T12:47:00Z",
+            "url_for_post": "none",
+            "associated_topics": ["API", "React", "Mock"],
+            "post_links": [
+
+                { "title": "React Docs", "url": "none" },
+                { "title": "React Docs 2", "url": "none" }
+
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Blog post 2",
+            "content": "Lorem Ipsum bla bla bla",
+            "created_at": "2025-09-23T12:448:00Z",
+            "url_for_post": "none",
+            "associated_topics": ["JavaScript", "Refactoring", "Mock"],
+            "post_links": [
+
+                { "title": "React Docs", "url": "none" },
+                { "title": "React Docs 2", "url": "none" }
+
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Another post about React",
+            "content": "Lorem Ipsum bla bla bla",
+            "created_at": "2025-09-23T12:48:00Z",
+            "url_for_post": "none",
+            "associated_topics": ["API", "React", "Mock"],
+            "post_links": [
+
+                { "title": "React Docs", "url": "none" },
+                { "title": "React Docs 2", "url": "none" }
+
+            ]
+        }
+    ]
+}
