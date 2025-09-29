@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom'
 
 class SearchBar extends Component {
 
-    handleFormSubmission( {query} ) {
+    handleFormSubmission = function( {query} ) {
 
         //console.log('[DEBUG REDUX-FORM] -> Handle submit for query: ', query)
 
@@ -39,8 +39,13 @@ class SearchBar extends Component {
                 className='search-bar' 
                 onSubmit={handleSubmit( this.handleFormSubmission.bind(this) )}
             >
+                <div className='seach-bar__wrapper'>
+                    <Field name='query' component={this.renderInput} />
+                    <p>Press return to search something</p>
 
-                <Field name='query' component={this.renderInput} />
+                </div>
+
+
 
             </form>
         )
