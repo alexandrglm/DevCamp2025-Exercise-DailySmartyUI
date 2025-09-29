@@ -1,0 +1,3 @@
+// de 10-210 API GET API
+
+export const SET_RECENT_POSTS = 'SET_RECENT_POSTS'
