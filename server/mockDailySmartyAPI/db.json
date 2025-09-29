@@ -34,12 +34,12 @@
             "title": "Another post about React",
             "content": "Lorem Ipsum bla bla bla",
             "created_at": "2025-09-23T12:48:00Z",
-            "url_for_post": "https://testing.com/Another-Post-About-React.html",
+            "url_for_post": "https://testing.com/PrettyFunctionTitle-Another-Post-About-React.html",
             "associated_topics": ["API", "React", "Mock"],
             "post_links": [
 
-                { "title": "React Docs", "url": "https://testing.com/Another-Post-About-React.html" },
-                { "title": "React Docs 2", "url": "https://testing.com/Another-Post-About-React.html" }
+                { "title": "React Docs", "url": "https://testing.com/PrettyFunctionTitle-Another-Post-About-React.html" },
+                { "title": "React Docs 2", "url": "https://testing.com/PrettyFunctionTitle-Another-Post-About-React.html" }
 
             ]
         }

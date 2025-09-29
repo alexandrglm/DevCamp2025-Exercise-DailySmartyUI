@@ -23,7 +23,7 @@ class Post extends Component {
         return topics
     }
 
-        prettyPostTitlesFromLinks(str){
+    prettyPostTitlesFromLinks(str){
 
         var n = str.lastIndexOf('/')
         var link = str.substring(n + 1, str.length)
