@@ -15,7 +15,7 @@ class Results extends Component {
     handleSearchbarSubmitQuery(query) {
 
         //console.log('[DEBUG 10-216] -> RESULTS.JS handle submit for a query:', query)
-        this.props.fetchPostsWithQuery(query)
+        this.props.fetchPostsWithQuery(query) // No necesita callback en este caso (guia 10-222)
 
 
     }

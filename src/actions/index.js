@@ -39,6 +39,12 @@ export function fetchPostsWithQuery(posts){
 
                 })
 
+                if ( callback ){
+
+                    callback()
+                
+                }
+
             })
 
     }
