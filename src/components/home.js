@@ -28,7 +28,7 @@ export default class Home extends Component {
 
         <Logo size={200}/>
         <SearchBar
-          page={home}
+          page="home"
           osSubmit={ (query) => { this.handleSearchBarSubmit(query) } }
         />
         <RecentPosts />

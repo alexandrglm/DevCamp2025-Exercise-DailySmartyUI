@@ -48,17 +48,17 @@ class Post extends Component {
         if ( this.props.type === 'recent' ) {
 
             return(
-            <div className="recent-post">
+            <li className="recent-post">
 
                 <div className="recent-post__title">
-                    {this.props.title}
+                    <a href={this.props.url_for_post}>{this.props.title}</a> 
                 </div>
 
                 <div className="recent-post__topics">
                     {this.renderTopics()}
                 </div>
 
-            </div>
+            </li>
 
             )
 
