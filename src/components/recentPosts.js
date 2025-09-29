@@ -16,7 +16,6 @@ class RecentPosts extends Component {
     render() {
 
         return(
-
             <div className="recent-posts">
 
                 <div className="recent-posts__wrapper">
@@ -44,7 +43,6 @@ class RecentPosts extends Component {
 
 /*
 ATENTO al connect syntax:
-
 connect(mapStateToProps, mapDispatchToProps)(Component)
 
 */
