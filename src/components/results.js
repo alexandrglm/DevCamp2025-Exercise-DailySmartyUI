@@ -30,9 +30,10 @@ class Results extends Component {
                 <SearchBar 
                     page="results" 
                     onSubmit={ query => {
-                        this.handleSearchbarSubmit(query)
+                        this.handleSearchbarSubmitQuery(query)
                     }}
                 />
+                <ResultsPosts /> {/* No lo he rendereizado durante todo el ejercicio y las 100mil vueltas que he dado para entenerlo era por esta tontería, incluso siendo consciente que el import sí lo tenái hecho */}
             </div>
 
         )

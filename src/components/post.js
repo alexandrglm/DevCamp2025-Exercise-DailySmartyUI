@@ -87,51 +87,54 @@ class Post extends Component {
         if ( this.props.type === 'recent' ) {
 
             return(
-            <li className="recent-post">
+                <li className="recent-post">
 
-                <div className="recent-post__title">
-                    <a href={this.props.url_for_post}>{this.props.title}</a> 
-                </div>
+                    <div className="recent-post__title">
+                        <a href={this.props.url_for_post}>{this.props.title}</a> 
+                    </div>
 
-                <div className="recent-post__topics">
-                    {this.renderTopics()}
-                </div>
+                    <div className="recent-post__topics">
+                        {this.renderTopics()}
+                    </div>
 
-            </li>
+                </li>
 
             )
 
-        } else if ( this.props.type === 'resulst' ) {
+        } else if ( this.props.type === 'results' ) {
+
+            return(
 
 
-            <li className="result-post"
-                onMouseEnter={ () => this.setState( {heith: 70 } )}
-                onMouseLeave={ () => this.setState( {height: 0 } )}
-            >
-
-                <div className="result-post__topics">
-                    {this.renderTopics()}
-                </div>
-
-
-                <div className="result-post__title">
-                    <a href={this.props.url_for_post}>
-                        {this.props.title}
-                    </a>
-
-                </div>
-
-                <AnimateHeight 
-                    duration={500}
-                    height={this.state.height}
+                <li className="result-post"
+                    onMouseEnter={ () => this.setState( {heith: 70 } )}
+                    onMouseLeave={ () => this.setState( {height: 0 } )}
                 >
 
-                    <div className="result-post__links">
-                        {this.renderLinks() }
+                    <div className="result-post__topics">
+                        {this.renderTopics()}
                     </div>
-                </AnimateHeight>
 
-            </li>
+
+                    <div className="result-post__title">
+                        <a href={this.props.url_for_post}>
+                            {this.props.title}
+                        </a>
+
+                    </div>
+
+                    <AnimateHeight 
+                        duration={500}
+                        height={this.state.height}
+                    >
+
+                        <div className="result-post__links">
+                            {this.renderLinks() }
+                        </div>
+                    </AnimateHeight>
+
+                </li>
+            )
         }   
     }
 }

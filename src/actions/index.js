@@ -24,7 +24,7 @@ export function fetchRecentPosts()  {
     }
 }
 
-export function fetchPostsWithQuery(posts){
+export function fetchPostsWithQuery(query, callback){
 
     return function(dispatch){
 

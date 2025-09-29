@@ -1,0 +1,35 @@
+dev@hostt: ./react-project-five$ ls -R ./src/ ./server ./static/ ./webpack/ ./proxy/
+./proxy/:
+rules.js
+
+./server:
+mockDailySmartyAPI
+
+./server/mockDailySmartyAPI:
+db.json  package.json.OLD
+
+./src/:
+actions  bootstrap.js  components  reducers  style  vendor.js
+
+./src/actions:
+index.js  types.js
+
+./src/components:
+home.js  logo.js  post.js  recentPosts.js  results.js  resultsPosts.js  searchBar.js
+
+./src/reducers:
+index.js  postsReducer.js
+
+./src/style:
+home.scss  main.scss  mixins.scss  post.scss  recentPosts.scss  results.scss  searchBar.scss
+
+./static/:
+assets  favicon.ico  index.html
+
+./static/assets:
+ds_circle_logo.png  README.md
+
+./webpack/:
+common.config.js  dev.config.js  postcss.config.js  prod.config.js
+
+

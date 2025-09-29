@@ -35,13 +35,13 @@ class ResultsPosts extends Component {
     }
 }
 
+// Fallo reiterativo, cuando trabajo con states, uso los props propios del states, no props a secas
 function mapStateToProps(state){
 
     return {
-        
-        props: state.props.resultsPosts
-
+        posts: state.posts.resultsPosts
     }
+
 }
 
 export default connect(mapStateToProps)(ResultsPosts)

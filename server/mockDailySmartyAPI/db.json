@@ -10,8 +10,8 @@
             "associated_topics": ["API", "React", "Mock"],
             "post_links": [
 
-                { "title": "React Docs", "url": "https://testing.com/how-to-mock-an-API.html" },
-                { "title": "React Docs 2", "url": "https://testing.com/how-to-mock-an-API.html" }
+                { "title": "React Docs", "link_url": "https://testing.com/how-to-mock-an-API.html" },
+                { "title": "React Docs 2", "link_url": "https://testing.com/how-to-mock-an-API.html" }
 
             ]
         },
@@ -24,8 +24,8 @@
             "associated_topics": ["JavaScript", "Refactoring", "Mock"],
             "post_links": [
 
-                { "title": "React Docs", "url": "https://testing.com/Blog-Post-2.htm" },
-                { "title": "React Docs 2", "url": "https://testing.com/Blog-Post-2.htm" }
+                { "title": "React Docs", "link_url": "https://testing.com/Blog-Post-2.htm" },
+                { "title": "React Docs 2", "link_url": "https://testing.com/Blog-Post-2.htm" }
 
             ]
         },
@@ -38,8 +38,8 @@
             "associated_topics": ["API", "React", "Mock"],
             "post_links": [
 
-                { "title": "React Docs", "url": "https://testing.com/PrettyFunctionTitle-Another-Post-About-React.html" },
-                { "title": "React Docs 2", "url": "https://testing.com/PrettyFunctionTitle-Another-Post-About-React.html" }
+                { "title": "React Docs", "link_url": "https://testing.com/PrettyFunctionTitle-Another-Post-About-React.html" },
+                { "title": "React Docs 2", "link_url": "https://testing.com/PrettyFunctionTitle-Another-Post-About-React.html" }
 
             ]
         }

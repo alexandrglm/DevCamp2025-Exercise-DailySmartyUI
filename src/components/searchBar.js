@@ -14,8 +14,8 @@ class SearchBar extends Component {
 
         //console.log('[DEBUG REDUX-FORM] -> Handle submit for query: ', query)
 
-        this.props.history.push('/results')
-
+        //this.props.history.push('/results') // Otro fallo, esto ya lo hace el componente padre, no lo cambié
+        this.props.onSubmit(query)
     }
 
     renderInput(field) {
@@ -44,8 +44,6 @@ class SearchBar extends Component {
                     <p>Press return to search something</p>
 
                 </div>
-
-
 
             </form>
         )
