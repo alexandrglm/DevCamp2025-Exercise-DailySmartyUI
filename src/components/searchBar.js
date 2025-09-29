@@ -12,7 +12,7 @@ class SearchBar extends Component {
 
     handleFormSubmission( {query} ) {
 
-        console.log('[DEBUG REDUX-FORM] -> Handle submit for query: ', query)
+        //console.log('[DEBUG REDUX-FORM] -> Handle submit for query: ', query)
 
         this.props.history.push('/results')
 
@@ -21,7 +21,7 @@ class SearchBar extends Component {
     renderInput(field) {
 
         return <input
-                    placeholder="&#xf002; Search on DailySmarty"
+                    placeholder=" Search on DailySmarty"
                     type='text' 
                     {...field.input}
                 />
@@ -55,7 +55,6 @@ class SearchBar extends Component {
 // 10-208
 // 1. Redux from HOC
 SearchBar = reduxForm({
-
     form: 'searchBar'
 
 })(SearchBar);
