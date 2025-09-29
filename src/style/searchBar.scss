@@ -25,6 +25,10 @@
             &::placeholder {
         
                 color: $color-gray-two;
+                // LA FORMA DE AÑADIR FONTAESOME DESDE CSS USADO COMO FONT!!!!! NO LO HABIA VISTO NUNCA ANTES
+                font-family: 'Font Awesome\ 5 Free', 'Lato', Arial, Helvetica, sans-serif;
+                //Font Awesome requiere `font-weight: 600` para mostrar iconos correctamente en placeholders.
+                font-weight: 600;
             }
     
             &:focus {
