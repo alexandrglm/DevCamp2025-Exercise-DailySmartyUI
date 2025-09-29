@@ -8,11 +8,15 @@ import { thunk } from "redux-thunk";
 
 import reducers from "./reducers";
 // De 10-211, ReduxDevTools,
+// FIX modern 2025 DevToolsExtension invokes
+const devToolsExtension = '__REDUX_DEVTOOLS_EXTENSION__'
 const createStoreWithMiddleware = applyMiddleware(thunk)(
+
   compose(
-    (window.devToolsExtension ? window.devToolsExtension()  : f => f)(createStore)
+    (window[devToolsExtension] ? window[devToolsExtension]()  : f => f)(createStore)
   )
 );
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 import "./style/main.scss";
