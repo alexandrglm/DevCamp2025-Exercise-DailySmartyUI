@@ -4,7 +4,7 @@
 import axios from 'axios'
 
 
-import { SET_RECENT_POSTS } from './types.js'
+import { SET_RECENT_POSTS, SET_RESULTS_POSTS } from './types.js'
 
 
 export function fetchRecentPosts()  {
@@ -31,6 +31,13 @@ export function fetchPostsWithQuery(posts){
         axios.get(`http://localhost:3001/posts?title_like=${query}`)
             .then( response =>{
                 console.log('[DEBUG 10-217 -> API GET QUERY RESPONSE]: ', response)
+
+                dispatch({
+
+                    type: SET_RESULTS_POSTS,
+                    payload: response.data
+
+                })
 
             })
 
