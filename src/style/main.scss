@@ -65,5 +65,10 @@ body {
 $color-gray-one: #666666;
 $color-gray-two: #B3B3B3;
 
+$color-blue-one: #1976D2;
+
+@import './searchBar.scss';
+@import './recentPosts.scss';
+
 
 
