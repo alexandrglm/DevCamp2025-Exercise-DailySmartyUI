@@ -1,5 +1,6 @@
 // De 10-203
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 
 class Logo extends Component {
 
@@ -15,6 +16,8 @@ class Logo extends Component {
         return(
 
             <div className="logo-main">
+                
+                <Link to="/" />
 
                 <img
                     style={size}
