@@ -6,12 +6,12 @@
             "title": "How to mock an API",
             "content": "Lorem Ipsum bla bla bla",
             "created_at": "2025-09-23T12:47:00Z",
-            "url_for_post": "none",
+            "url_for_post": "https://testing.com/how-to-mock-an-API.html",
             "associated_topics": ["API", "React", "Mock"],
             "post_links": [
 
-                { "title": "React Docs", "url": "none" },
-                { "title": "React Docs 2", "url": "none" }
+                { "title": "React Docs", "url": "https://testing.com/how-to-mock-an-API.html" },
+                { "title": "React Docs 2", "url": "https://testing.com/how-to-mock-an-API.html" }
 
             ]
         },
@@ -20,12 +20,12 @@
             "title": "Blog post 2",
             "content": "Lorem Ipsum bla bla bla",
             "created_at": "2025-09-23T12:448:00Z",
-            "url_for_post": "none",
+            "url_for_post": "https://testing.com/Blog-Post-2.htm",
             "associated_topics": ["JavaScript", "Refactoring", "Mock"],
             "post_links": [
 
-                { "title": "React Docs", "url": "none" },
-                { "title": "React Docs 2", "url": "none" }
+                { "title": "React Docs", "url": "https://testing.com/Blog-Post-2.htm" },
+                { "title": "React Docs 2", "url": "https://testing.com/Blog-Post-2.htm" }
 
             ]
         },
@@ -34,12 +34,12 @@
             "title": "Another post about React",
             "content": "Lorem Ipsum bla bla bla",
             "created_at": "2025-09-23T12:48:00Z",
-            "url_for_post": "none",
+            "url_for_post": "https://testing.com/Another-Post-About-React.html",
             "associated_topics": ["API", "React", "Mock"],
             "post_links": [
 
-                { "title": "React Docs", "url": "none" },
-                { "title": "React Docs 2", "url": "none" }
+                { "title": "React Docs", "url": "https://testing.com/Another-Post-About-React.html" },
+                { "title": "React Docs 2", "url": "https://testing.com/Another-Post-About-React.html" }
 
             ]
         }
