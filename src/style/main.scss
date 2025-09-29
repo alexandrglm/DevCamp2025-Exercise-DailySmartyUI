@@ -36,14 +36,20 @@ body {
     margin:0 4px;
 
 }
+.app-wrapper {
 
+    display: grid;
+    justify-content: center;
+
+}
 .home {
 
     display: grid;
-    height: 100vh;
-
     align-content: space-around;
     justify-items: center;
 
+    width: 66vw;
+    height: 100vh;
 
 }
+
