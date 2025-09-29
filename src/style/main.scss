@@ -12,6 +12,8 @@ html {
 }
 
 body {
+
+    font-family: 'Lato', sans-serif;
     overflow-x: hidden;
     font-weight: normal;
 
@@ -32,5 +34,16 @@ body {
 .post-topic{
 
     margin:0 4px;
+
+}
+
+.home {
+
+    display: grid;
+    height: 100vh;
+
+    align-content: space-around;
+    justify-items: center;
+
 
 }

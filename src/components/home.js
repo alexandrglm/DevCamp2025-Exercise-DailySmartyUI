@@ -24,7 +24,7 @@ export default class Home extends Component {
    
     return (
     
-      <div >
+      <div className='home' >
 
         <Logo size={200}/>
         <SearchBar
