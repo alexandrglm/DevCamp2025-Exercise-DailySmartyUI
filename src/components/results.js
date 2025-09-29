@@ -25,8 +25,8 @@ class Results extends Component {
         return(
 
             <div>
-                <h1> Results:</h1>
-                <Logo size={150} />
+
+                <Logo size={55} onClick={ () => window.location.reload()} />
                 <SearchBar 
                     page="results" 
                     onSubmit={ query => {

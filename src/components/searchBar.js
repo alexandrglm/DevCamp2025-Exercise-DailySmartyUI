@@ -9,6 +9,13 @@ import { withRouter } from 'react-router-dom'
 
 
 class SearchBar extends Component {
+    
+    // constructor(props) {
+
+    //     super(props)
+    //     this.renderInput = this.renderInput.bind(this)
+
+    // }
 
     handleFormSubmission = function( {query} ) {
 
@@ -20,38 +27,34 @@ class SearchBar extends Component {
 
     renderInput(field) {
 
-        return <input
-                    placeholder="&#xf002; Search DailySmarty"
-                    type='text' 
-                    {...field.input}
-                />
-
+        return (
+                
+            <input
+                placeholder='&#xf002; Search something ...'
+                type='text' 
+                {...field.input}
+            />
+        )
     }
-
 
     render() {
-
         const { handleSubmit } = this.props
-
+        
         return (
-
-            <form
-                className={ ` search-bar search-bar__${this.props.page} `   }
-                onSubmit={handleSubmit( this.handleFormSubmission.bind(this) )}
-            >
-                <div className='seach-bar__wrapper'>
+            <form className={`search-bar search-bar__${this.props.page}`}
+                onSubmit={handleSubmit(this.handleFormSubmission.bind(this))}>
+                
+                <div className='search-bar__wrapper'>
                     <Field name='query' component={this.renderInput} />
-                    <p>Press return to search something</p>
-
+                    <p>Press return to search</p>
                 </div>
-
             </form>
         )
-
-
     }
 
+
 }
+
 
 // De10-205 -> Aqui es donde conectamos todo con redux-form
 

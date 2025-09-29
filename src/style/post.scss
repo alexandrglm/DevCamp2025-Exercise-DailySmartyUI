@@ -7,13 +7,16 @@
 }
 
 .post-topic {
+
     color: $color-gray-two;
     font-size: 14px;
     font-weight: bold;
     text-align: left;
+    
     margin-right: 8px;
 }
 
-// .post-link {
-//     //.post-link__box 
-//     //.post-link__link }
+.post-link {
+    .post-link__box { empty-cells: show;}
+    .post-link__link { empty-cells: show;}
+ }

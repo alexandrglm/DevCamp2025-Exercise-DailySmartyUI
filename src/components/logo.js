@@ -9,9 +9,10 @@ class Logo extends Component {
         const size = {
 
             height: this.props.size ? this.props.size : 105,
-            width: this.props.size ? this.props.size : 105
+            width: this.props.size ? this.props.size : 105,
 
         }
+
 
         return(
 
