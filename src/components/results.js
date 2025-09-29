@@ -7,9 +7,10 @@ import SearchBar from "./searchBar";
 
 class Results extends Component {
 
-    handleSeacrhbarSubmitQuery(query) {
+    handleSearchbarSubmitQuery(query) {
 
-        console.log('[DEBUG 10-216] -> RESULTS.JS handle submit for a query:', query)
+        //console.log('[DEBUG 10-216] -> RESULTS.JS handle submit for a query:', query)
+        this.props.fetchPostsWithQuery(query)
 
 
     }
