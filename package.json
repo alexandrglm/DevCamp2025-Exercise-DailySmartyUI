@@ -10,7 +10,7 @@
     "precommit": "eslint src",
     "prod": "NODE_ENV=production node server.js",
     "dev:api": "json-server --watch server/mockDailySmartyAPI/db.json --port 3001 --delay 500",
-    "dev:app": "webpack-dev-server --config webpack/dev.config.js --watch",
+    "dev:app": "webpack-dev-server --config webpack/dev.config.js --port 7777 --watch",
     "dev:full": "npm-run-all --parallel dev:api dev:app"
   },
   "repository": {

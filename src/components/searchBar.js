@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-// De 10-207
+// De 10-207 - 10-208
 import { withRouter } from 'react-router-dom'
 
 
@@ -21,7 +21,7 @@ class SearchBar extends Component {
     renderInput(field) {
 
         return <input
-                    placeholder="&#xf002; Search DailySmarty"
+                    placeholder="&#xf002; Search on DailySmarty"
                     type='text' 
                     {...field.input}
                 />
@@ -52,7 +52,7 @@ class SearchBar extends Component {
 
 // De10-205 -> Aqui es donde conectamos todo con redux-form
 
-// 10-207
+// 10-208
 // 1. Redux from HOC
 SearchBar = reduxForm({
 
