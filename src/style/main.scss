@@ -67,8 +67,18 @@ $color-gray-two: #B3B3B3;
 
 $color-blue-one: #1976D2;
 
+
+
+
+
+@import './mixins.scss';
+
 @import './searchBar.scss';
 @import './recentPosts.scss';
+@import '/post.scss';
+
+@import './home.scss';
+@import './results.scss';
 
 
 
