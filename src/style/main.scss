@@ -1,3 +1,22 @@
+$color-gray-one: #666666;
+$color-gray-two: #B3B3B3;
+$color-gray-three: #D8D8D8;
+
+$color-blue-one: #1976D2;
+
+
+
+
+
+@import './mixins.scss';
+
+@import './searchBar.scss';
+@import './recentPosts.scss';
+@import '/post.scss';
+
+@import './home.scss';
+@import './results.scss';
+
 html {
     font-size: 62.5%; // 1rem is 10px
 }
@@ -62,23 +81,16 @@ body {
 
 }
 
-$color-gray-one: #666666;
-$color-gray-two: #B3B3B3;
 
-$color-blue-one: #1976D2;
+.no-content{
+
+    color: $color-gray-one;
+    font-size: 14px;
+    line-height: 17px;
+
+}
 
 
-
-
-
-@import './mixins.scss';
-
-@import './searchBar.scss';
-@import './recentPosts.scss';
-@import '/post.scss';
-
-@import './home.scss';
-@import './results.scss';
 
 
 
