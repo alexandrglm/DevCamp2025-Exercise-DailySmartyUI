@@ -1,6 +1,8 @@
 // De 10-207
 import React, { Component } from "react";
+
 import Logo from "./logo";
+import SearchBar from "./searchBar";
 
 
 class Results extends Component {
@@ -11,7 +13,8 @@ class Results extends Component {
 
             <div>
                 <h1> Results:</h1>
-                <Logo />
+                <Logo size={550} />
+                <SearchBar />
             </div>
 
         )
