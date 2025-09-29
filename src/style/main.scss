@@ -47,10 +47,18 @@ body {
 
     display: grid;
     align-content: space-around;
-    justify-items: center;
+    justify-items: stretch;
 
     width: 66vw;
     height: 100vh;
+
+}
+
+.logo-main,
+.recent-posts {
+
+    display: grid;
+    justify-items: center;
 
 }
 
