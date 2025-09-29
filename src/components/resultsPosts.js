@@ -11,7 +11,7 @@ class ResultsPosts extends Component {
 
         const posts = this.props.posts.map( (post, index) =>{
 
-            return <Post key={index} {...post} />
+            return <Post type="results" key={index} {...post} />
 
         } )
 
