@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import { SET_RECENT_POSTS, SET_RESULTS_POSTS } from './types.js'
 
-const API_URL = 'https://projectfive-devcamp-api-275615f66dc4.herokuapp.com/'
+
 
 export function fetchRecentPosts()  {
 
@@ -26,6 +26,8 @@ export function fetchRecentPosts()  {
 }
 
 export function fetchPostsWithQuery(query, callback){
+
+    const API_URL = process.env.REACT_APP_API_URL
 
     return function(dispatch){
 
