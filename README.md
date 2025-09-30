@@ -1,20 +1,64 @@
-# 2025 Update:
+# 2025 Update
 
-Since **DailySmarty** is not available, a fake API with the same schema needs to be used (De).  Unfortunately, the Devcamp.space API has no room for this, nor does it use the same schema as the now-defunct DailySmarty.
+**DailySmarty** API is defunct. This project uses `json-server` to mock the original schema for GET requests only.
 
-**json-server** seems to provide a quickest way to spin up a simple API for **GET** requests (as *DailySmarty* did). It does not replace routes, endpoints, or other mechanisms.  
+## Differences between Development vs Production
 
-The main objective is to complete the exercise; the mock API can later be refined or extended to follow standard REST API routes.
+**Development:**
+- Local json-server on `localhost:3001`
+- Run `npm run dev:api` and `npm run dev:app` in separate terminals (or use `npm run dev:full` with npm-run-all)
+- Uses `.env.local` with `REACT_APP_API_URL=http://localhost:3001`
+
+**Production (Heroku):**
+- Separate Heroku app running json-server
+- Environment variable `REACT_APP_API_URL` set via `heroku config:set` using a separate API URL.
 
 ---
 
-## FAKE API USAGE
----
-### STANDALONE (Both npm running, server + API)
+## Mock API Setup (Separate Heroku App)
 
-1. Create a separate /server folder, like `server/mockDailySmartyAPI`
+### Local Development
+```bash
+mkdir dailysmarty-mock-api && cd dailysmarty-mock-api
+npm init -y
+npm install json-server cors
+```
 
-2. Create its own package.json, like:
+### server.js for mockDailySmartyAPI
+```js
+// DailySmarty MockAPI for HEROKU
+
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('db.json');
+
+const middlewares = jsonServer.defaults({
+    static: './public'
+});
+
+// CORS dolor de cabeza
+server.use((req, res, next) => {
+
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    
+    next();
+});
+
+server.use(middlewares);
+server.use(router);
+
+const PORT = process.env.PORT || 3001;
+
+server.listen(PORT, () => {
+
+    console.log(`JSON Server running on port ${PORT}`);
+
+});
+```
+
+### packages.json
 ```json
 {
   "name": "dailysmarty-mock-api",
@@ -26,130 +70,71 @@ The main objective is to complete the exercise; the mock API can later be refine
     "dev": "json-server --watch db.json --port 3001 --host localhost --delay 500"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "json-server": "^0.17.4"
   }
 }
-```
-
-3. Install json-server
-
-```bash
-npm install
-```
-
-4. Create a `db.json` file with sample data following the same schema described in the lessons for **DailySmarty**.
-
-```json
-{
-    "posts": [
-
-        {
-            "id": 1,
-            "title": "How to mock an API",
-            "content": "Lorem Ipsum bla bla bla",
-            "created_at": "2025-09-23T12:47:00Z",
-            "url_for_post": "none",
-            "associated_topics": ["API", "React", "Mock"],
-            "post_links": [
-
-                { "title": "React Docs", "url": "none" },
-                { "title": "React Docs 2", "url": "none" }
-
-            ]
-        },
-        {
-            "id": 2,
-            "title": "Blog post 2",
-            "content": "Lorem Ipsum bla bla bla",
-            "created_at": "2025-09-23T12:448:00Z",
-            "url_for_post": "none",
-            "associated_topics": ["JavaScript", "Refactoring", "Mock"],
-            "post_links": [
-
-                { "title": "React Docs", "url": "none" },
-                { "title": "React Docs 2", "url": "none" }
-
-            ]
-        },
-        {
-            "id": 3,
-            "title": "Another post about React",
-            "content": "Lorem Ipsum bla bla bla",
-            "created_at": "2025-09-23T12:48:00Z",
-            "url_for_post": "none",
-            "associated_topics": ["API", "React", "Mock"],
-            "post_links": [
-
-                { "title": "React Docs", "url": "none" },
-                { "title": "React Docs 2", "url": "none" }
-
-            ]
-        }
-    ]
-}
-```
-
-5. To start DB server:
-```bash
-(py2env) dev@hostt:~/react-project-five/server/mockDailySmartyAPI$ npm run dev
-
-> dailysmarty-mock-api@1.0.0 dev /react-project-five/server/mockDailySmartyAPI
-> json-server --watch db.json --port 3001 --host localhost --delay 500
-
-
-  \{^_^}/ hi!
-
-  Loading db.json
-  Done
-
-  Resources
-  http://localhost:3001/posts
-
-  Home
-  http://localhost:3001
-
-  Type s + enter at any time to create a snapshot of the database
-  Watching...
-
 
 ```
-
-6. Start another instance with the project server, and continue developing the interface while using a working API adapted to the required schema.
+### Procfile
+```js
+web: node server.js
+```
 ---
 
-### BOTH INCLUDED
-
-Similar to the previous method.
-Create `db.json` and place it wherever we want (for example, `server/mockDailySmartyAPI`).
-
-Install two new dev dependencies:
-
-1. `npm-run-all` (like `concurrently` for newer Node versions).
-2. `json-server@0.17.4`, exactly this version for the `js-generate` we use.
-
-In `package.json` under `scripts`, make some changes to run both server instances in one command:
-
-```json
-    "scripts": {
-        ...
-        "dev:api": "json-server --watch server/mockDailySmartyAPI/db.json --port 3001 --delay 500",
-        "dev:app": "webpack-dev-server --config webpack/dev.config.js --watch",
-        "dev:full": "npm-run-all --parallel dev:api dev:app"
-        ...
-    }
+### Deploy 
 ```
-
-Named `dev:api` for the fake API callback, and `dev:app` for the same thing `run start` was doing… just a matter of preference.
-
-To run everything at once:
-
-```bash
-npm run dev:full
+git init && git add . && git commit -m "API setup"
+heroku create <NAME_FOR_API_PROJECT_ON_HEROKU>
+git push heroku main
 ```
 
 ---
 
-### API GET ENDPOINTS
+### Modifications on this project
+
+#### 1. Creating an .env
+```
+REACT_APP_API_URL=<URL_FOR_API_PROJECT_ON_HEROKU> # Avoid using final / slash here
+```
+
+#### 2. Add `**/.env` to `.gitignore`
+
+#### 3. Add .env var into `./scr/actions/index.js`
+```js
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+...
+axios.get(`${API_URL}/posts`)
+...
+axios.get(`${API_URL}/posts?title_like=${query}`)
+
+```
+
+#### 4. For OLD REact version, git commit  first, then add .env vars
+```bash
+git push heroku main
+```
+
+### 5. Once heroku has sucessfully deployed
+```bash
+heroku config:set REACT_APP_API_URL=<API_URL_FROM_HEROKU> -a <DAILYSMART_UI_HEROKU_PROJECT>
+```
+---
+
+# Heroku Deploy Issues (2025)
+
+## node-sass incompatibility with Node 22:
+> As seen in other projects like the react-portfolio, replace `node-sass` with sass.
+
+## Redux dependency conflicts
+> Enable LEGACY PEER DEPS on Heroku's npm config
+```bash
+heroku config:set npm_config_legacy_peer_deps=true
+```
+
+---
+
+# Available API ENDPOINTS
 
 #### Get ALL
 GET http://localhost:3001/posts
@@ -164,6 +149,31 @@ GET http://localhost:3001/posts?title_like=React
 GET http://localhost:3001/posts?associated_topics_like=JavaScript
 
 ---
+
+# Self-Evaluation
+
+### Self-Detected Errors
+
+* **Spelling/typing**: Misspelled variables (`resulst`), function names (`handleSearchbarSubmit` vs. `handleSearchbarSubmitQuery`), props (`osSubmit`), and even `constructor`. These caused rendering failures, runtime errors, and cryptic messages.
+* **Config mistakes**: Heroku env var typo (`npm_config_legacy_peer_deeps` instead of `deps`) wasted multiple deploys.
+* **Conceptual gaps**: Wrong parameter names, incorrect Redux state mapping, missing `return` in JSX, and forgetting to import `ResultsPosts`.
+* **CSS issue**: Universal selector (`*::before`) broke FontAwesome icons.
+
+
+### Patterns
+
+* Majority of problems came from **typos**.
+* Config errors persisted because changes weren’t verified.
+* Some bugs showed an incomplete grasp of data flow (e.g. Redux mapping).
+* Most time lost: Heroku variable typo (slow deploy cycle).
+* Hardest to trace: CSS selector breaking icons.
+
+### How to Avoid These Errors
+
+* Double-checking config vars immediately after setting.
+* Using linters to catch undefined variables/functions.
+* Testing  components in isolation before integration.
+* Validating assumptions about data structures (Redux state shape).
 
 
 ---
