@@ -110,12 +110,24 @@ axios.get(`${API_URL}/posts?title_like=${query}`)
 
 ```
 
-#### 4. For OLD REact version, git commit  first, then add .env vars
+#### 4. Add new .env 'REACT_APP_API_URL` to webpack's PROD config
+##### ./webpack/prod.config.js
+
+```js
+    new DefinePlugin({
+      "process.env": {
+        NODE_ENV: '"production"',
+        // HERE! As long as new ENV VAR is being used, old webpack MUST INCLUDE IT for PRODUCTION
+        REACT_APP_API_URL: JSON.stringify(process.env.REACT_APP_API_URL)
+      }
+```
+
+#### 5. For OLD REact version, git commit  first, then add .env vars
 ```bash
 git push heroku main
 ```
 
-### 5. Once heroku has sucessfully deployed
+### 6. Once heroku has sucessfully deployed
 ```bash
 heroku config:set REACT_APP_API_URL=<API_URL_FROM_HEROKU> -a <DAILYSMART_UI_HEROKU_PROJECT>
 ```
