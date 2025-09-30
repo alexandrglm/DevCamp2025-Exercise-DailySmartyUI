@@ -6,13 +6,14 @@ import axios from 'axios'
 
 import { SET_RECENT_POSTS, SET_RESULTS_POSTS } from './types.js'
 
+const API_URL = 'https://projectfive-devcamp-api-275615f66dc4.herokuapp.com/'
 
 export function fetchRecentPosts()  {
 
     return function(dispatch) {
         //console.log('[API COMPONENT, ACTION fetchRecentPosts()] -> ', dispatch)
         // GET
-        axios.get('http://localhost:3001/posts')
+        axios.get(`${API_URL}/posts`)
             .then( response =>{
                 
                 console.log('[DEBUG AXIOS GET] API GET response: ', response.data ),
@@ -28,7 +29,7 @@ export function fetchPostsWithQuery(query, callback){
 
     return function(dispatch){
 
-        axios.get(`http://localhost:3001/posts?title_like=${query}`)
+        axios.get(`${API_URL}/posts?title_like=${query}`)
             .then( response =>{
                 console.log('[DEBUG 10-217 -> API GET QUERY RESPONSE]: ', response)
 
